@@ -227,10 +227,12 @@
       <div class="wrap">
         <h2>Kontakt</h2>
         <!--p class="sub">Napisz do mnie – odpowiem tego samego dnia roboczego.</p-->
-        <form id="contactForm">
+  <form id="contactForm">
   <input name="name" placeholder="Imię i nazwisko" required />
   <input name="email" type="email" placeholder="Adres e-mail" required />
-  <input name="phone" type="tel" placeholder="Numer telefonu" required pattern="^\+?[\d\s\-]{9,20}$" title="Wprowadź poprawny numer telefonu" />
+  <input name="phone" type="tel" placeholder="Numer telefonu" required 
+         pattern="^\+?[\d\s\-]{9,20}$"
+         title="Wprowadź poprawny numer telefonu (cyfry, spacje, - oraz opcjonalny + na początku)">
   <textarea name="message" placeholder="Wiadomość" required></textarea>
   <div style="display:flex;gap:12px;align-items:center">
     <button class="btn" type="submit">Wyślij</button>
@@ -253,16 +255,27 @@
       © <span id="year"></span> Szczur System. Wszelkie prawa zastrzeżone. <!--a href="#" style="color:var(--ink);text-decoration:underline">Polityka prywatności</a-->
     </div>
   </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     // Aktualny rok w stopce
     document.getElementById('year').textContent = new Date().getFullYear()
+emailjs.init("23c-RtsRDgJ8TejvB"); // wstaw swój public key z EmailJS
 
-    // Formularz kontaktowy – otwiera program pocztowy z danymi
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', function(e){
+  const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', function(e){
     e.preventDefault();
-      emailjs.sendForm('service_09zz81h', 'template_m5yumfo', this)
+
+    // Weryfikacja numeru telefonu
+    const phone = form.phone.value.trim();
+    const phoneRegex = /^\+?[\d\s\-]{9,20}$/;
+    if(!phoneRegex.test(phone)){
+      alert('Proszę wprowadzić poprawny numer telefonu (cyfry, spacje, - oraz opcjonalny + na początku)');
+      return;
+    }
+
+    // Wysłanie formularza przez EmailJS
+    emailjs.sendForm('service_09zz81h', 'template_m5yumfo', form)
       .then(() => {
         document.getElementById('formStatus').textContent = "Wiadomość wysłana!";
         form.reset();
@@ -271,8 +284,6 @@
         console.error(err);
       });
   });
-     
-    }
 
     // Płynny scroll dla linków nawigacyjnych
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -285,9 +296,5 @@
       })
     })
   </script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  emailjs.init("23c-RtsRDgJ8TejvB"); // zamień na swój public key z EmailJS
-</script>  
 </body>
 </html>

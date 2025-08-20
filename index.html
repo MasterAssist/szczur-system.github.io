@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="utf-8" />
@@ -228,15 +227,16 @@
       <div class="wrap">
         <h2>Kontakt</h2>
         <!--p class="sub">Napisz do mnie – odpowiem tego samego dnia roboczego.</p-->
-        <form onsubmit="handleSubmit(event)">
-          <input name="name" placeholder="Imię i nazwisko" required />
-          <input name="email" type="email" placeholder="Adres e-mail" required />
-          <textarea name="message" placeholder="Wiadomość" required></textarea>
-          <div style="display:flex;gap:12px;align-items:center">
-            <button class="btn" type="submit">Wyślij</button>
-            <span id="formStatus" class="sub" role="status"></span>
-          </div>
-        </form>
+        <form id="contactForm">
+  <input name="name" placeholder="Imię i nazwisko" required />
+  <input name="email" type="email" placeholder="Adres e-mail" required />
+  <input name="phone" type="tel" placeholder="Numer telefonu" required pattern="^\+?[\d\s\-]{9,20}$" title="Wprowadź poprawny numer telefonu" />
+  <textarea name="message" placeholder="Wiadomość" required></textarea>
+  <div style="display:flex;gap:12px;align-items:center">
+    <button class="btn" type="submit">Wyślij</button>
+    <span id="formStatus" class="sub" role="status"></span>
+  </div>
+</form>
         <p class="sub" style="margin-top:8px">
           Lub skontaktuj się bezpośrednio:
           <br>✉ <a href="mailto:szczur.system@poczta.fm">  szczur.system@poczta.fm</a>
@@ -259,16 +259,19 @@
     document.getElementById('year').textContent = new Date().getFullYear()
 
     // Formularz kontaktowy – otwiera program pocztowy z danymi
-    function handleSubmit(e){
-      e.preventDefault()
-      const data = Object.fromEntries(new FormData(e.target).entries())
-      const subject = encodeURIComponent('Zapytanie ze strony – ' + (data.name || ''))
-      const body = encodeURIComponent(`Imię i nazwisko: ${data.name}\nE-mail: ${data.email}\n\nWiadomość:\n${data.message}`)
-      const mailto = `mailto:szczur.system@poczta.fm?subject=${subject}&body=${body}`
-      window.location.href = mailto
-      const status = document.getElementById('formStatus')
-      status.textContent = 'Otwieram program pocztowy…'
-      setTimeout(()=> status.textContent = 'Jeśli nie zadziałało, napisz na szczur.system@poczta.fm', 1500)
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e){
+    e.preventDefault();
+      emailjs.sendForm('service_09zz81h', 'template_m5yumfo', this)
+      .then(() => {
+        document.getElementById('formStatus').textContent = "Wiadomość wysłana!";
+        form.reset();
+      }, (err) => {
+        document.getElementById('formStatus').textContent = "Błąd wysyłki. Spróbuj ponownie.";
+        console.error(err);
+      });
+  });
+     
     }
 
     // Płynny scroll dla linków nawigacyjnych
@@ -282,5 +285,9 @@
       })
     })
   </script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("23c-RtsRDgJ8TejvB"); // zamień na swój public key z EmailJS
+</script>  
 </body>
 </html>

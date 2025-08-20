@@ -3,60 +3,103 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Twoja Nazwa – Strona Firmowa / Portfolio</title>
-  <meta name="description" content="Prosta, szybka i responsywna strona wizytówka. Zmień treści i opublikuj za darmo na GitHub Pages, Netlify lub Vercel." />
-  <meta name="theme-color" content="#111827" />
+  <title>Szczur System – Profesjonalny serwis komputerów</title>
+  <meta name="description" content="Profesjonalny serwis komputerów i laptopów w Warszawie i okolicach. Naprawy, składanie komputerów, modyfikacje kontrolerów, diagnostyka i wsparcie IT." />
+  <meta name="theme-color" content="#001f54" />
+  
+  <!-- Fonty -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <style>
+    /* Kolory i zmienne globalne */
     :root{
-      --bg:#0b0f19; --card:#121829; --ink:#e5e7eb; --muted:#a1a1aa; --brand:#6ee7b7; --accent:#60a5fa;
-      --maxw:1100px; --radius:20px; --shadow:0 10px 30px rgba(0,0,0,.25)
+      --bg:#0b0f19;            /* tło główne */
+      --card:#001f54;          /* kolor kart / sekcji */
+      --ink:#e5e7eb;           /* kolor tekstu */
+      --muted:#a1a1aa;         /* kolor tekstu pobocznego */
+      --brand:#001f54;         /* główny kolor marki */
+      --accent:#77b6ea;        /* akcentowy kolor */
+      --maxw:1100px;
+      --radius:20px;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
     }
+
+    /* Reset i podstawowe style */
     *{box-sizing:border-box}
     html,body{margin:0}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.6
+    }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;border-radius:12px}
     .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(8px);background:rgba(11,15,25,.6);z-index:50;border-bottom:1px solid rgba(255,255,255,.06)}
+
+    /* Nagłówek i nawigacja */
+    header{
+      position:sticky;top:0;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:rgba(11,15,25,.8);
+      z-index:50;
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:700}
     .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--accent))}
     .menu{display:flex;gap:18px}
     .menu a{opacity:.9}
     .menu a:hover{opacity:1}
-    .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#0b0f19;padding:10px 16px;border-radius:12px;font-weight:700}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      background:linear-gradient(135deg,var(--brand),var(--accent));
+      color:#0b0f19;padding:10px 16px;border-radius:12px;font-weight:700
+    }
     .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.16);color:var(--ink)}
 
+    /* Sekcja Hero */
     .hero{padding:96px 0 48px}
     .hero .grid{display:grid;gap:32px;grid-template-columns:1.1fr .9fr}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--muted);font-size:14px}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;color:var(--muted);font-size:14px
+    }
     h1{font-size:clamp(32px,5vw,48px);line-height:1.1;margin:16px 0 12px}
     p.lead{font-size:18px;color:#cbd5e1;max-width:60ch}
     .hero-card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06)}
-    .hero-card img{width:100%;display:block}
 
+    /* Sekcje */
     section{padding:56px 0}
     h2{font-size:28px;margin:0 0 8px}
     .sub{color:var(--muted);margin:0 0 24px}
 
+    /* Usługi / features */
     .features{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
     .card{background:var(--card);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,.06)}
     .card h3{margin:0 0 6px;font-size:18px}
     .card p{margin:0;color:#cbd5e1}
 
+    /* Portfolio / gallery */
     .gallery{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
     .gallery a{position:relative;overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.08)}
-    .gallery a span{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,.45);padding:6px 10px;border-radius:10px;font-size:14px}
+    .gallery a span{
+      position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,.45);
+      padding:6px 10px;border-radius:10px;font-size:14px
+    }
 
+    /* O nas */
     .about{display:grid;gap:24px;grid-template-columns:1fr 1fr}
 
+    /* Formularz */
     form{display:grid;gap:12px}
     input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0d1424;color:var(--ink)}
     textarea{min-height:120px;resize:vertical}
 
+    /* Stopka */
     footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
 
     /* Responsive */
@@ -67,9 +110,10 @@
   </style>
 </head>
 <body>
+  <!-- Nagłówek i menu -->
   <header>
     <div class="wrap nav">
-      <div class="brand"><span class="logo" aria-hidden="true"></span> <span>TwojaNazwa</span></div>
+      <div class="brand"><span class="logo" aria-hidden="true"></span> <span>Szczur System</span></div>
       <nav class="menu" aria-label="Główne">
         <a href="#uslugi">Usługi</a>
         <a href="#realizacje">Realizacje</a>
@@ -80,50 +124,65 @@
   </header>
 
   <main>
+    <!-- Sekcja Hero / wprowadzenie -->
     <section class="hero">
       <div class="wrap">
         <div class="grid">
           <div>
             <span class="pill">⚡ Szybkie realizacje • Bez ukrytych kosztów</span>
-            <h1>Pomagamy firmom i twórcom <span style="background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">zaistnieć w sieci</span>.</h1>
-            <p class="lead">Projektujemy proste i szybkie strony internetowe, portfolio oraz landing page’e, które działają świetnie na telefonach i komputerach.</p>
+            <h1>Profesjonalny serwis komputerów i laptopów – Warszawa i okolice 🚀</h1>
+            <p class="lead">Masz problem z komputerem lub laptopem? Potrzebujesz modernizacji albo chcesz zbudować wymarzoną maszynę? Oferuję kompleksowe usługi informatyczne z indywidualnym podejściem do każdego klienta.</p>
             <div style="display:flex;gap:12px;margin-top:18px">
               <a class="btn" href="#kontakt">Bezpłatna wycena</a>
               <a class="btn ghost" href="#realizacje">Zobacz realizacje</a>
             </div>
           </div>
           <div class="hero-card">
-            <img src="https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d8?q=80&w=1600&auto=format&fit=crop" alt="Zrzut ekranu nowoczesnej strony internetowej" />
+            <img src="https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d8?q=80&w=1600&auto=format&fit=crop" alt="Nowoczesny komputer / laptop" />
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Sekcja Usługi -->
     <section id="uslugi">
       <div class="wrap">
         <h2>Usługi</h2>
         <p class="sub">Wybierz to, czego potrzebujesz – resztą zajmiemy się my.</p>
         <div class="features">
           <div class="card">
-            <h3>Strona wizytówka</h3>
-            <p>Jednostronicowa witryna z opisem oferty, sekcją „o nas” i formularzem kontaktowym.</p>
+            <h3>Naprawa i serwis laptopów</h3>
+            <p>Wymiana ekranów, klawiatur, układów chłodzenia, czyszczenie po zalaniu.</p>
           </div>
           <div class="card">
-            <h3>Landing page</h3>
-            <p>Skoncentrowany na konwersji – idealny do kampanii, sprzedaży i zapisów.</p>
+            <h3>Składanie komputerów</h3>
+            <p>Od standardowych zestawów po custom buildy z hard line cooling.</p>
           </div>
           <div class="card">
-            <h3>Portfolio</h3>
-            <p>Siatka projektów, case studies i referencje klientów w schludnym układzie.</p>
+            <h3>Modernizacje PC</h3>
+            <p>Wymiana podzespołów, przyspieszenie działania, konfiguracja systemów.</p>
+          </div>
+          <div class="card">
+            <h3>Lutowanie i naprawa elektroniki</h3>
+            <p>Gniazda zasilania, porty USB, układy scalone, drobna elektronika.</p>
+          </div>
+          <div class="card">
+            <h3>Modyfikacje kontrolerów</h3>
+            <p>Przeróbki joysticków, np. Hall Effect.</p>
+          </div>
+          <div class="card">
+            <h3>Instalacja i konfiguracja</h3>
+            <p>Systemy operacyjne, sterowniki i oprogramowanie.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Sekcja Realizacje / Portfolio -->
     <section id="realizacje">
       <div class="wrap">
         <h2>Realizacje</h2>
-        <p class="sub">Kilka przykładowych układów i kadrów (podmień obrazki i podpisy).</p>
+        <p class="sub">Kilka przykładowych projektów – podmień obrazki i podpisy.</p>
         <div class="gallery">
           <a href="#" aria-label="Projekt A"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Projekt A"><span>Projekt A</span></a>
           <a href="#" aria-label="Projekt B"><img src="https://images.unsplash.com/photo-1523473827532-0fbb4cbd97a0?q=80&w=1200&auto=format&fit=crop" alt="Projekt B"><span>Projekt B</span></a>
@@ -132,16 +191,20 @@
       </div>
     </section>
 
+    <!-- Sekcja O nas -->
     <section id="o-nas">
       <div class="wrap about">
         <div>
           <h2>O nas</h2>
-          <p class="sub">Krótko o tym, kim jesteś/jesteście i co Was wyróżnia.</p>
-          <p>Specjalizujemy się w lekkich, szybkich i czytelnych stronach. Stosujemy najlepsze praktyki dostępności i SEO on‑page, aby Twoja witryna była widoczna i wygodna w użyciu.</p>
+          <p class="sub">Krótko o tym, kim jesteśmy i co nas wyróżnia.</p>
+          <p>Specjalizujemy się w lekkich, szybkich i czytelnych stronach. Stosujemy najlepsze praktyki dostępności i SEO on-page, aby Twoja witryna była widoczna i wygodna w użyciu.</p>
           <ul>
-            <li>✅ Projekt w 3–7 dni</li>
-            <li>✅ Bez abonamentu – statyczna strona działa za darmo</li>
-            <li>✅ Prosta edycja treści</li>
+            <li>✔ 7 lat doświadczenia w pracy z komputerami i wieloma zadowolonymi klientami</li>
+            <li>✔ Darmowa diagnoza i wycena (płacisz tylko za naprawę, jeśli się powiedzie)</li>
+            <li>✔ Jeśli naprawa okaże się niemożliwa – nie ponosisz żadnych kosztów</li>
+            <li>✔ Konkurencyjne ceny i elastyczne podejście</li>
+            <li>✔ Indywidualne podejście – doradzamy najlepsze rozwiązania</li>
+            <li>✔ Szybka realizacja i dostępność praktycznie o każdej porze</li>
           </ul>
         </div>
         <div class="card">
@@ -153,27 +216,35 @@
       </div>
     </section>
 
+    <!-- Sekcja Kontakt -->
     <section id="kontakt">
       <div class="wrap">
         <h2>Kontakt</h2>
         <p class="sub">Napisz do nas – odpowiemy tego samego dnia roboczego.</p>
         <form onsubmit="handleSubmit(event)">
           <input name="name" placeholder="Imię i nazwisko" required />
-          <input name="email" type="email" placeholder="Adres e‑mail" required />
+          <input name="email" type="email" placeholder="Adres e-mail" required />
           <textarea name="message" placeholder="Wiadomość" required></textarea>
           <div style="display:flex;gap:12px;align-items:center">
             <button class="btn" type="submit">Wyślij</button>
             <span id="formStatus" class="sub" role="status"></span>
           </div>
         </form>
-        <p class="sub" style="margin-top:8px">Lub napisz bezpośrednio: <a href="mailto:kontakt@twojadomena.pl">kontakt@twojadomena.pl</a></p>
+        <p class="sub" style="margin-top:8px">
+          Lub skontaktuj się bezpośrednio:
+          <br>✉ <a href="mailto:szczur.system@poczta.fm">szczur.system@poczta.fm</a>
+          <br>🌐 <a href="https://www.olx.pl/oferty/uzytkownik/C4Hwi/" target="_blank">OLX</a>
+          <br>📞 Numer telefonu do dodania
+        </p>
+        <p class="sub">Diagnoza i wycena zawsze gratis.</p>
       </div>
     </section>
   </main>
 
+  <!-- Stopka -->
   <footer>
     <div class="wrap">
-      © <span id="year"></span> TwojaNazwa. Wszelkie prawa zastrzeżone. · <a href="#" style="color:var(--ink);text-decoration:underline">Polityka prywatności</a>
+      © <span id="year"></span> Szczur System. Wszelkie prawa zastrzeżone. · <a href="#" style="color:var(--ink);text-decoration:underline">Polityka prywatności</a>
     </div>
   </footer>
 
@@ -181,17 +252,17 @@
     // Aktualny rok w stopce
     document.getElementById('year').textContent = new Date().getFullYear()
 
-    // Prosta obsługa formularza bez backendu – otwiera mailto z wypełnioną treścią
+    // Formularz kontaktowy – otwiera program pocztowy z danymi
     function handleSubmit(e){
       e.preventDefault()
       const data = Object.fromEntries(new FormData(e.target).entries())
       const subject = encodeURIComponent('Zapytanie ze strony – ' + (data.name || ''))
       const body = encodeURIComponent(`Imię i nazwisko: ${data.name}\nE-mail: ${data.email}\n\nWiadomość:\n${data.message}`)
-      const mailto = `mailto:kontakt@twojadomena.pl?subject=${subject}&body=${body}`
+      const mailto = `mailto:szczur.system@poczta.fm?subject=${subject}&body=${body}`
       window.location.href = mailto
       const status = document.getElementById('formStatus')
       status.textContent = 'Otwieram program pocztowy…'
-      setTimeout(()=> status.textContent = 'Jeśli nie zadziałało, napisz na kontakt@twojadomena.pl', 1500)
+      setTimeout(()=> status.textContent = 'Jeśli nie zadziałało, napisz na szczur.system@poczta.fm', 1500)
     }
 
     // Płynny scroll dla linków nawigacyjnych

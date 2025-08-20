@@ -49,8 +49,8 @@
     }
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:700}
-    .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--accent))}
-    .menu{display:flex;gap:18px}
+    .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--accent))}
+    .menu{display:flex;align-items:center;justify-content:space-between;height:64px;gap:32px}
     .menu a{opacity:.9}
     .menu a:hover{opacity:1}
     .btn{
@@ -113,10 +113,13 @@
   <!-- Nagłówek i menu -->
   <header>
     <div class="wrap nav">
-      <div class="brand"><span class="logo" aria-hidden="true"></span> <span>Szczur System</span></div>
+      <div class="brand">
+        <img src="LogoGłowa.png" alt="" style="height:32px; width:auto; border-radius:8px;">
+       <span>Szczur System</span>
+      </div>
       <nav class="menu" aria-label="Główne">
         <a href="#uslugi">Usługi</a>
-        <a href="#realizacje">Realizacje</a>
+        <!--a href="#realizacje">Realizacje</a-->
         <a href="#o-nas">O nas</a>
         <a href="#kontakt" class="btn">Kontakt</a>
       </nav>
@@ -129,12 +132,12 @@
       <div class="wrap">
         <div class="grid">
           <div>
-            <span class="pill">⚡ Szybkie realizacje • Bez ukrytych kosztów</span>
+            <span class="pill">⚡ Szybkie realizacje • Zawsze bezpłatna wycena i diagnoza</span>
             <h1>Profesjonalny serwis komputerów i laptopów – Warszawa i okolice 🚀</h1>
-            <p class="lead">Masz problem z komputerem lub laptopem? Potrzebujesz modernizacji albo chcesz zbudować wymarzoną maszynę? Oferuję kompleksowe usługi informatyczne z indywidualnym podejściem do każdego klienta.</p>
+            <p class="lead">Masz problem z komputerem, laptopem lub innym sprzętem elektronicznym? Potrzebujesz modernizacji albo chcesz zbudować wymarzoną maszynę? Oferuję kompleksowe usługi informatyczne z indywidualnym podejściem do każdego klienta.</p>
             <div style="display:flex;gap:12px;margin-top:18px">
-              <a class="btn" href="#kontakt">Bezpłatna wycena</a>
-              <a class="btn ghost" href="#realizacje">Zobacz realizacje</a>
+              <a class="btn" href="#kontakt"> Skontaktuj się ze mną!</a>
+              <!--a class="btn ghost" href="#realizacje">Zobacz realizacje</-a-->
             </div>
           </div>
           <div class="hero-card">
@@ -148,38 +151,41 @@
     <section id="uslugi">
       <div class="wrap">
         <h2>Usługi</h2>
-        <p class="sub">Wybierz to, czego potrzebujesz – resztą zajmiemy się my.</p>
+        <p class="sub">Wszystko, czego potrzebujesz Ty i Twoja maszyna:</p>
         <div class="features">
           <div class="card">
             <h3>Naprawa i serwis laptopów</h3>
-            <p>Wymiana ekranów, klawiatur, układów chłodzenia, czyszczenie po zalaniu.</p>
+            <p>Wymiana ekranów, klawiatur, układów chłodzenia, portów, czyszczenie po zalaniu lub ogólne.</p>
           </div>
           <div class="card">
             <h3>Składanie komputerów</h3>
-            <p>Od standardowych zestawów po custom buildy z hard line cooling.</p>
+            <p>Od standardowych zestawów po custom buildy. Zrobię listę części, zakupię i zbuduję idealny sprzęt dla Ciebie.</p>
           </div>
           <div class="card">
             <h3>Modernizacje PC</h3>
-            <p>Wymiana podzespołów, przyspieszenie działania, konfiguracja systemów.</p>
+            <p>Wymiana podzespołów, konfiguracja systemów. Zarówno od strony hardware jak i oprogramowania.</p>
+          </div>
+          <div class="card">
+            <h3>Czyszczenie i konserwacja</h3>
+            <p>Pełny serwis układu chłodzenia, wymiana past termoprzewodzących, usuwanie kurzu dla lepszej wydajności i ciszy.</p>
           </div>
           <div class="card">
             <h3>Lutowanie i naprawa elektroniki</h3>
-            <p>Gniazda zasilania, porty USB, układy scalone, drobna elektronika.</p>
-          </div>
-          <div class="card">
-            <h3>Modyfikacje kontrolerów</h3>
-            <p>Przeróbki joysticków, np. Hall Effect.</p>
+            <p>Gniazda zasilania, porty USB, układy scalone, drobna elektronika, przeróbki joysticków, np. Hall Effect.</p>
           </div>
           <div class="card">
             <h3>Instalacja i konfiguracja</h3>
-            <p>Systemy operacyjne, sterowniki i oprogramowanie.</p>
+            <p>Systemy operacyjne, sterowniki i oprogramowanie. Po oddaniu sprzęt będzie w pełni gotowy do każdego zadania.</p>
           </div>
+        
         </div>
+        <br>
+      <p class="sub">👉 To tylko część mojej oferty – zapytaj o inne usługi, a na pewno znajdziemy rozwiązanie.</p>
       </div>
     </section>
 
     <!-- Sekcja Realizacje / Portfolio -->
-    <section id="realizacje">
+    <!--section id="realizacje">
       <div class="wrap">
         <h2>Realizacje</h2>
         <p class="sub">Kilka przykładowych projektów – podmień obrazki i podpisy.</p>
@@ -193,26 +199,26 @@
 
     <!-- Sekcja O nas -->
     <section id="o-nas">
-      <div class="wrap about">
-        <div>
-          <h2>O nas</h2>
-          <p class="sub">Krótko o tym, kim jesteśmy i co nas wyróżnia.</p>
-          <p>Specjalizujemy się w lekkich, szybkich i czytelnych stronach. Stosujemy najlepsze praktyki dostępności i SEO on-page, aby Twoja witryna była widoczna i wygodna w użyciu.</p>
-          <ul>
-            <li>✔ 7 lat doświadczenia w pracy z komputerami i wieloma zadowolonymi klientami</li>
-            <li>✔ Darmowa diagnoza i wycena (płacisz tylko za naprawę, jeśli się powiedzie)</li>
-            <li>✔ Jeśli naprawa okaże się niemożliwa – nie ponosisz żadnych kosztów</li>
-            <li>✔ Konkurencyjne ceny i elastyczne podejście</li>
-            <li>✔ Indywidualne podejście – doradzamy najlepsze rozwiązania</li>
-            <li>✔ Szybka realizacja i dostępność praktycznie o każdej porze</li>
-          </ul>
-        </div>
-        <div class="card">
+      <div class="wrap">
+        <div->
+          <h2>O mnie</h2>
+          <p class="sub">Krótko o tym, kim jestem i co mnie wyróżnia.</p>
+          <p>Zajmuję się profesjonalnym serwisem i modernizacją sprzętu komputerowego od 7 lat. Pasja połączona z doświadczeniem to gwarancja skutecznej naprawy i Twojego zadowolenia. Do każdego zlecenia podchodzę indywidualnie, bo wiem, że każdy problem jest inny.</p>
+          <p>
+            ✔ Wieloletnie doświadczenie w pracy z komputerami i wieloma zadowolonymi klientami
+            <br>✔ Darmowa diagnoza i wycena (płacisz tylko za wykonaną usługę)
+            <br>✔ Płacisz tylko wtedy, gdy usługa zostanie wykonana skutecznie
+            <br>✔ Praca na miejscu u klienta jak i w moim serwisie
+            <br>✔ Indywidualne podejście – najlepsze rozwiązania do każdej sytuacji
+            <br>✔ Szybka realizacja i dostępność praktycznie o każdej porze
+          </p>
+        <!--/div-->
+        <!--div class="card">
           <h3 style="margin-top:0">Dlaczego my?</h3>
           <p><strong>Jakość</strong> – klarowna typografia, przemyślane odstępy i kontrast.</p>
           <p><strong>Wydajność</strong> – minimalny kod, szybkie ładowanie.</p>
           <p><strong>Wsparcie</strong> – instrukcja edycji i aktualizacji po wdrożeniu.</p>
-        </div>
+        </div-->
       </div>
     </section>
 
@@ -220,7 +226,7 @@
     <section id="kontakt">
       <div class="wrap">
         <h2>Kontakt</h2>
-        <p class="sub">Napisz do nas – odpowiemy tego samego dnia roboczego.</p>
+        <!--p class="sub">Napisz do mnie – odpowiem tego samego dnia roboczego.</p-->
         <form onsubmit="handleSubmit(event)">
           <input name="name" placeholder="Imię i nazwisko" required />
           <input name="email" type="email" placeholder="Adres e-mail" required />
@@ -233,10 +239,9 @@
         <p class="sub" style="margin-top:8px">
           Lub skontaktuj się bezpośrednio:
           <br>✉ <a href="mailto:szczur.system@poczta.fm">szczur.system@poczta.fm</a>
+          <br>📞 +48 576 36 36 96
           <br>🌐 <a href="https://www.olx.pl/oferty/uzytkownik/C4Hwi/" target="_blank">OLX</a>
-          <br>📞 Numer telefonu do dodania
         </p>
-        <p class="sub">Diagnoza i wycena zawsze gratis.</p>
       </div>
     </section>
   </main>
@@ -244,7 +249,7 @@
   <!-- Stopka -->
   <footer>
     <div class="wrap">
-      © <span id="year"></span> Szczur System. Wszelkie prawa zastrzeżone. · <a href="#" style="color:var(--ink);text-decoration:underline">Polityka prywatności</a>
+      © <span id="year"></span> Szczur System. Wszelkie prawa zastrzeżone. <!--a href="#" style="color:var(--ink);text-decoration:underline">Polityka prywatności</a-->
     </div>
   </footer>
 
